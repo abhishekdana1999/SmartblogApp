@@ -1,0 +1,41 @@
+
+
+.search-box {
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    /* position: sticky; */
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+
+    &_button {
+        height: 40px;
+        width: 40px;
+        text-align: -webkit-center;
+        border: 1px solid #444;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        line-height: 2.7;
+        border-radius: 50px;
+    }
+
+    &_content {
+        padding: 80px 16px 0 16px;
+
+        & .search_box {
+            width: 100%;
+            padding: 16px;
+            border-radius: 5px;
+
+            border: 1px solid #444;
+
+        }
+    }
+}

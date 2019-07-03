@@ -1,14 +1,51 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-  </div>
+<header class="header">
+  <ion-row>
+    <ion-col style="text-align: left;" col-4>
+      <button (click)="openMenu()" class="menu-button">
+        <img src="https://img.icons8.com/material-rounded/24/000000/menu-2.png">
+      </button>
+    </ion-col>
+    <ion-col style="text-align: center;" col-4>
+      <a href="https://blog.smartcodehub.com" class="logo">
+        <img src="https://blog.smartcodehub.com/content/images/2019/07/newlogo.png" alt="Smartcodehub ™ Blog">
+      </a>
+    </ion-col>
+    <ion-col style="text-align: right;" col-4>
+      <button (click)="openSearch()" class="search">
+        <img src="https://img.icons8.com/material-outlined/24/000000/search.png">
+      </button>
+    </ion-col>
+  </ion-row>
+</header>
+<ion-content  padding>
+<div  class="container" *ngIf="data.length">
+  <div *ngFor="let item of data " class="article-card">
+    <div class="article-card__image" [ngStyle]="{'background-image': 'url('+item.feature_image+')'}" >
+      <a href="#" class="article-card__image-link" aria-label="Article"></a>
+      <a href="https://blog.smartcodehub.com/author/{{item.primary_author.name}}/" class="article-card__author js-tooltip" aria-label="Authors">
+        <div class="avatar" [ngStyle]="{'background': 'url(' + item.primary_author.profile_image + ')'}"></div>
+    </a>
+    </div>
+    <div class="article-card__info">
+       <a *ngIf="item.primary_tag" href="https://blog.smartcodehub.com/tag/angular/" class="article-card__info__tag">{{item.primary_tag.name}}</a>
+      <a href="/httpclient-in-angular/" class="article-card__info-link">
+        <div>
+          <h2 class="article-card__info__title">{{item.title}}</h2>
+        </div>
+        <div class="article-card__info__timestamp">
+          <span>{{item.published_at | date}}</span>
+          <span>•</span>
+          <span>2 min read</span>
+        </div>
+      </a>
+    </div>
+  </div> 
+  <!-- <ion-button ion-button block outline (click)="loadMore($event)">Load More</ion-button> -->
+  <button class="btn btn-block" (click)="loadMore($event)">Load More</button>
+</div>
+
+<app-search></app-search>
+
+
 </ion-content>

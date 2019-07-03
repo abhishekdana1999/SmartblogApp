@@ -4,3 +4,99 @@
 // styles are for the entire app and not just one component. Additionally, this 
 // file can hold Sass mixins, functions, and placeholder classes to be imported 
 // and used throughout the application.
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro|Nunito&display=swap');
+
+.menu {
+    height: 100%;
+    
+    width: 0;
+    
+    position: relative;
+    
+    z-index: 1;
+    
+    top: 0;
+    
+    left: 0;
+    background-color: rgb(255, 255, 255);
+    
+    overflow-x: hidden;
+    
+
+    font-family: nunito;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+    margin: 40px 0;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background: linear-gradient(to right, #c33764, #1d2671);
+    color: white;
+    transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    &-close {
+        border: 1px solid;
+        text-align: -webkit-center;
+        line-height: 2.2;
+        border-radius: 100px;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
+        z-index: 2;
+    }
+
+    &-content {
+        padding: 60px 0 0 0;
+
+        & .nav {
+            list-style: none;
+
+            & .nav-item {
+                padding: 16px 0;
+                font-size: 14px;
+                font-weight: 500;
+                font-family: nunito;
+                letter-spacing: 2px;
+
+            }
+        }
+    }
+}
+
+
+.feature-article {
+    height: 100%;
+    width: 100%;
+    margin: 10px auto;
+
+    &__image {
+        background-image: url(https://images.unsplash.com/photo-1525447153550-9b38670d8fcc?ixlib=rb-1.2.1…fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjExNzczfQ);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 170px;
+        margin: 16px;
+        border-radius: 10px;
+    }
+
+    &__content {
+        & h4 {
+            color: #fff;
+            letter-spacing: .2px;
+            line-height: 1.438rem;
+            font-size: 1rem;
+            font-weight: 400;
+            margin: 10px 16px;
+            text-align: left
+        }
+
+        & span {
+            color: #fff;
+            letter-spacing: .15px;
+            font-size: .813rem;
+            margin: 10px 16px;
+            float: left
+        }
+    }
+}

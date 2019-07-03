@@ -1,0 +1,22 @@
+
+<div id="search" class="search-box">
+  <div (click)="closeSearch()" class="search-box_button">
+      <ion-icon name="close"></ion-icon>
+  </div>
+
+  <div class="search-box_content">
+      <ion-searchbar [(ngModel)]="search" name="search"  placeholder="Search For Tag (Angular)" (ionChange)="searchPost()" animated></ion-searchbar>
+      <div class="contianer">
+          <ion-item *ngFor="let item of searchdata">
+              <ion-thumbnail slot="start">
+                <img [src]="item.feature_image">
+              </ion-thumbnail>
+              <ion-label>
+                <h2>{{item.title}}</h2>
+                <p>{{item.excerpt | slice: 0:100}}</p>
+              </ion-label>
+              <ion-button fill="outline" slot="end">View</ion-button>
+            </ion-item>
+      </div>
+    </div>
+</div>

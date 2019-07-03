@@ -68,6 +68,8 @@ export class HomePage {
 
   openMenu()
   {
+    document.getElementById("backdrop").style.visibility= "visible";
+    document.getElementById("backdrop").style.opacity= "1";
     document.getElementById("menu").style.width = "80%";
     
   }

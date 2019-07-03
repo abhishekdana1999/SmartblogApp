@@ -1,0 +1,85 @@
+<ion-content *ngIf="data">
+  <ion-header class="header">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="home"></ion-back-button>
+      </ion-buttons>
+      <ion-title style="font-family: nunito">{{data.title}}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="blog">
+    <div style="padding-top: 55px" class="blog-header">
+      <img [src]="data.feature_image" alt="">
+    </div>
+    <div class="blog-title">
+      {{data.title}}
+    </div>
+    <div class="blog-heading__meta">
+      <a *ngIf="data.primary_tag" href="https://blog.smartcodehub.com/tag/python/"
+        class="blog-heading__meta__tag">{{data.primary_tag.name}}</a>
+      <span *ngIf="data.primary_tag" class="blog-heading__meta__divider">•</span>
+      <span class="blog-heading__meta__time">{{data.published_at | date}}</span>
+    </div>
+    <div [innerHtml]="data.html" class="blog-content">
+
+    </div>
+
+  </div>
+
+  <section class="subscribe">
+    <div class="subscribe-block">
+      <div class="subscribe-block-content">
+        <div class="subscribe-block-content-text">
+          <h4 class="subscribe-block-content-text__title">Subscribe to our newsletter</h4>
+          <p class="subscribe-block-content-text__description">
+            Get the latest posts delivered right to your inbox.
+          </p>
+        </div>
+        <div class="subscribe-block-content-form">
+          <input type="email" placeholder="Your email address" [(ngModel)]="email" name="email">
+          <button ion-button block>Subscribe</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="author">
+    <div class="author-block">
+      <div class="author-block-image">
+        <a href="https://blog.smartcodehub.com/author/{{data.primary_author.name}}/" class="author-block-image-picture"
+          aria-label="Author picture">
+          <div [ngStyle]="{'background-image': 'url('+ data.primary_author.profile_image +')'}"></div>
+        </a>
+      </div>
+      <div class="author-block-info">
+        <h4 class="author-block-info-name">
+          {{data.primary_author.name}}
+        </h4>
+        <p class="author-block-info-bio">
+          {{data.primary_author.bio}}
+        </p>
+        <ul class="author-block-info-links">
+          <li>
+            <a [href]="data.primary_author.website" target="_blank" rel="noopener" aria-label="Website">
+              <ion-icon name="globe"></ion-icon>
+            </a>
+          </li>
+          <li>
+            <a href="https://m.facebook.com/{{data.primary_author.facebook}}" target="_blank" rel="noopener"
+              aria-label="Facebook">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.twitter.com/{{data.primary_author.twitter}}" target="_blank" rel="noopener"
+              aria-label="Twitter">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</ion-content>

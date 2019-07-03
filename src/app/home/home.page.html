@@ -22,14 +22,14 @@
 <div  class="container" *ngIf="data.length">
   <div *ngFor="let item of data " class="article-card">
     <div class="article-card__image" [ngStyle]="{'background-image': 'url('+item.feature_image+')'}" >
-      <a href="#" class="article-card__image-link" aria-label="Article"></a>
+      <a [routerLink]="['/blogdetail' , item.id]" class="article-card__image-link" aria-label="Article"></a>
       <a href="https://blog.smartcodehub.com/author/{{item.primary_author.name}}/" class="article-card__author js-tooltip" aria-label="Authors">
         <div class="avatar" [ngStyle]="{'background': 'url(' + item.primary_author.profile_image + ')'}"></div>
     </a>
     </div>
     <div class="article-card__info">
        <a *ngIf="item.primary_tag" href="https://blog.smartcodehub.com/tag/angular/" class="article-card__info__tag">{{item.primary_tag.name}}</a>
-      <a href="/httpclient-in-angular/" class="article-card__info-link">
+      <a [routerLink]="['/blogdetail' , item.id]" class="article-card__info-link">
         <div>
           <h2 class="article-card__info__title">{{item.title}}</h2>
         </div>

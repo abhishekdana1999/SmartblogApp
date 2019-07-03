@@ -1,27 +1,31 @@
 <ion-app>
-    <div id="menu" class="menu ">
-        <div (click)="closeMenu()" class="menu-close">
-            <ion-icon name="close"></ion-icon>
-        </div>
-        <div class="menu-content">
-            <ul class="nav">
-                <li class="nav-item">Home</li>
-                <li class="nav-item">Smartcodehub</li>
-                <li class="nav-item">Write for us</li>
-              </ul>
-              <ion-slides *ngIf="data.length">
-                <ion-slide  *ngFor="let item of data">
-                  <div class="feature-article">
-                    <div  [ngStyle]="{'background-image': 'url('+item.feature_image+')'}" class="feature-article__image">
-                    </div>
-                    <div class="feature-article__content">
-                     <h4>{{item.title}}</h4>
-                     <span>{{item.published_at | date}}</span>
-                    </div>
-                  </div>
-              </ion-slide>
-              </ion-slides>
-        </div>
+  <div id="menu" class="menu ">
+    <div (click)="closeMenu()" class="menu-close">
+      <ion-icon name="close"></ion-icon>
     </div>
+    <div class="menu-content">
+      <ul class="nav">
+        <li class="nav-item">Home</li>
+        <li class="nav-item"><a href="https://www.smartcodehub.com">Smartcodehub </a> </li>
+        <li class="nav-item"><a [routerLink]="['/contribute']">Write for us</a></li>
+      </ul>
+     
+
+      <ngx-slick-carousel style="width:288px;margin: 0 auto;" *ngIf="data.length" class="carousel" #slickModal="slick-carousel" [config]="slideConfig"
+      >
+        <div ngxSlickItem  *ngFor="let item of data" class="slide">
+          <div (click)="gotoDetails(item.id)" class="feature-article">
+            <div [ngStyle]="{'background-image': 'url('+item.feature_image+')'}" class="feature-article__image">
+            </div>
+            <div class="feature-article__content">
+              <h4>{{item.title}}</h4>
+              <span>{{item.published_at | date}}</span>
+            </div>
+          </div>
+        </div>
+      </ngx-slick-carousel>
+    </div>
+  </div>
+  <div id="backdrop" (click)="closeMenu()" class="backdrop"></div>
   <ion-router-outlet></ion-router-outlet>
 </ion-app>

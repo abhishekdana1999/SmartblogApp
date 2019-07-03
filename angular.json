@@ -40,9 +40,22 @@
               },
               {
                 "input": "src/app/app.scss"
+              },
+              {
+                "input": "node_modules/slick-carousel/slick/slick.scss"
+              },
+              {
+                "input": "node_modules/slick-carousel/slick/slick-theme.scss"
               }
             ],
-            "scripts": [],
+            "scripts": [
+              {
+                "input": "node_modules/jquery/dist/jquery.min.js"
+              },
+              {
+                "input": "node_modules/slick-carousel/slick/slick.min.js"
+              }
+            ],
             "es5BrowserSupport": true
           },
           "configurations": {

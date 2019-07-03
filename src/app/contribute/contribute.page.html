@@ -1,0 +1,21 @@
+<ion-header class="header">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="font-family: nunito">Contribute</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div *ngIf="data" class="contribute">
+    <div class="contribute-header">
+        <div class="contribute-header-image"></div>
+        <div class="contribute-header-content">
+            <h3>Contribute</h3>
+        </div>
+    </div>
+    <div [innerHtml]="data.html" class="contribute-content">
+
+    </div>
+  </div>
+</ion-content>
